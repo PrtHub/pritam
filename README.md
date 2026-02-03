@@ -1,36 +1,125 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Pritam's Portfolio
+
+A modern, dark-themed portfolio website built with Next.js 16, featuring a unique Bento Grid layout and dedicated project landing pages for App Store submissions.
+
+## Features
+
+- **Bento Grid Layout** - Creative, modern grid-based design
+- **Dark Theme** - Clean, monochromatic dark mode design
+- **Project Landing Pages** - Each project has its own dedicated page with:
+  - Hero section with metrics (revenue, users)
+  - Features list
+  - CTA buttons (App Store, Website, GitHub)
+  - Privacy Policy page
+  - Terms of Service page
+  - Support/Contact page
+- **Responsive Design** - Works on all devices
+- **SEO Optimized** - Meta tags, Open Graph, Twitter cards, JSON-LD
+- **Static Generation** - Fast loading with SSG
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **UI Components**: shadcn/ui
+- **Markdown**: react-markdown
+- **Fonts**: Inter (Google Fonts)
+
+## Project Structure
+
+```
+src/
+├── app/
+│   ├── page.tsx                    # Home page
+│   ├── layout.tsx                  # Root layout
+│   ├── globals.css                 # Global styles
+│   └── projects/
+│       └── [slug]/
+│           ├── page.tsx            # Project landing page
+│           ├── privacy/page.tsx    # Privacy policy
+│           ├── terms/page.tsx      # Terms of service
+│           └── support/page.tsx    # Support page
+├── components/
+│   ├── bento/                      # Bento grid components
+│   │   ├── bento-grid.tsx
+│   │   ├── hero-card.tsx
+│   │   ├── project-card.tsx
+│   │   ├── stats-card.tsx
+│   │   └── ...
+│   ├── projects/                   # Project page components
+│   │   ├── project-hero.tsx
+│   │   ├── project-features.tsx
+│   │   ├── project-cta.tsx
+│   │   └── support-contact.tsx
+│   └── ui/                         # shadcn/ui components
+└── lib/
+    └── data.ts                     # Site config & project data
+```
 
 ## Getting Started
 
-First, run the development server:
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/PrtHub/pritam.git
+   cd pritam
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Run development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open in browser**
+   ```
+   http://localhost:3000
+   ```
+
+## Configuration
+
+Edit `src/lib/data.ts` to update:
+
+- **Site Config**: Name, title, description, social links
+- **Projects**: Add/edit projects with:
+  - slug, title, description
+  - metrics (revenue, users)
+  - features list
+  - App Store/Play Store/Website URLs
+  - Privacy policy & Terms of service content
+
+## Project URLs
+
+Each project generates the following routes:
+
+| Route | Description |
+|-------|-------------|
+| `/projects/[slug]` | Project landing page |
+| `/projects/[slug]/privacy` | Privacy policy |
+| `/projects/[slug]/terms` | Terms of service |
+| `/projects/[slug]/support` | Support & contact |
+
+## Deployment
+
+Deploy on Vercel:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/PrtHub/pritam)
+
+Or build for production:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## License
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+MIT License
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Author
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Pritam** - [@iPritamX](https://x.com/iPritamX)
