@@ -3,7 +3,9 @@
     "allow": [
       "Bash(git branch:*)",
       "Bash(git remote add:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(git remote remove:*)",
+      "Bash(npm run build:*)"
     ]
   }
 }

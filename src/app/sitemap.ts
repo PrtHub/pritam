@@ -22,27 +22,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Project subpages (privacy, terms, support)
-  const projectSubpages: MetadataRoute.Sitemap = projects.flatMap((project) => [
-    {
-      url: `${baseUrl}/projects/${project.slug}/privacy`,
-      lastModified: new Date(),
-      changeFrequency: "yearly" as const,
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/projects/${project.slug}/terms`,
-      lastModified: new Date(),
-      changeFrequency: "yearly" as const,
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/projects/${project.slug}/support`,
-      lastModified: new Date(),
-      changeFrequency: "yearly" as const,
-      priority: 0.3,
-    },
-  ]);
+  // Project subpages (support)
+  const projectSubpages: MetadataRoute.Sitemap = projects.map((project) => ({
+    url: `${baseUrl}/projects/${project.slug}/support`,
+    lastModified: new Date(),
+    changeFrequency: "yearly" as const,
+    priority: 0.3,
+  }));
 
   return [...staticPages, ...projectPages, ...projectSubpages];
 }

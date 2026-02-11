@@ -1,5 +1,4 @@
-import Link from "next/link";
-import { Project, siteConfig } from "@/lib/data";
+import { Project } from "@/lib/data";
 
 interface SupportContactProps {
   project: Project;
@@ -35,8 +34,10 @@ export function SupportContact({ project }: SupportContactProps) {
 
         {/* Legal Links */}
         <div className="flex flex-col gap-4">
-          <Link
-            href={`/projects/${project.slug}/privacy`}
+          <a
+            href={project.privacyPolicyUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-4 p-6 rounded-2xl bg-zinc-900/50 border border-white/10 hover:bg-zinc-900/80 hover:border-white/20 transition-all"
           >
             <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
@@ -48,10 +49,12 @@ export function SupportContact({ project }: SupportContactProps) {
               <div className="font-medium text-white">Privacy Policy</div>
               <div className="text-sm text-zinc-500">Read our privacy policy</div>
             </div>
-          </Link>
+          </a>
 
-          <Link
-            href={`/projects/${project.slug}/terms`}
+          <a
+            href={project.termsOfServiceUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-4 p-6 rounded-2xl bg-zinc-900/50 border border-white/10 hover:bg-zinc-900/80 hover:border-white/20 transition-all"
           >
             <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
@@ -67,7 +70,7 @@ export function SupportContact({ project }: SupportContactProps) {
               <div className="font-medium text-white">Terms of Service</div>
               <div className="text-sm text-zinc-500">Read our terms</div>
             </div>
-          </Link>
+          </a>
         </div>
       </div>
     </div>

@@ -19,28 +19,50 @@ export default async function Image() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#0a0a0a",
-          backgroundImage:
-            "radial-gradient(circle at 25% 25%, #1a1a2e 0%, transparent 50%), radial-gradient(circle at 75% 75%, #16213e 0%, transparent 50%)",
+          backgroundColor: "#09090b",
+          fontFamily: "system-ui, -apple-system, sans-serif",
         }}
       >
+        {/* Card container */}
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            gap: "20px",
+            gap: "24px",
+            backgroundColor: "#18181b",
+            borderRadius: "24px",
+            border: "1px solid #27272a",
+            padding: "60px 80px",
+            maxWidth: "1000px",
           }}
         >
+          {/* Avatar initial */}
+          <div
+            style={{
+              width: "64px",
+              height: "64px",
+              borderRadius: "16px",
+              backgroundColor: "#27272a",
+              border: "1px solid rgba(255, 255, 255, 0.06)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: 28,
+              color: "#fafafa",
+              fontWeight: 700,
+            }}
+          >
+            {siteConfig.name.charAt(0)}
+          </div>
+
           {/* Name */}
           <div
             style={{
-              fontSize: 72,
+              fontSize: 64,
               fontWeight: 700,
-              background: "linear-gradient(to right, #ffffff, #a1a1aa)",
-              backgroundClip: "text",
-              color: "transparent",
+              color: "#fafafa",
               letterSpacing: "-2px",
             }}
           >
@@ -50,8 +72,8 @@ export default async function Image() {
           {/* Title */}
           <div
             style={{
-              fontSize: 36,
-              color: "#71717a",
+              fontSize: 28,
+              color: "#a1a1aa",
               fontWeight: 500,
             }}
           >
@@ -61,11 +83,11 @@ export default async function Image() {
           {/* Description */}
           <div
             style={{
-              fontSize: 24,
+              fontSize: 20,
               color: "#52525b",
-              maxWidth: "800px",
+              maxWidth: "700px",
               textAlign: "center",
-              marginTop: "10px",
+              lineHeight: 1.5,
             }}
           >
             {siteConfig.description}
@@ -75,11 +97,10 @@ export default async function Image() {
           <div
             style={{
               display: "flex",
-              gap: "12px",
-              marginTop: "30px",
+              gap: "8px",
+              marginTop: "12px",
               flexWrap: "wrap",
               justifyContent: "center",
-              maxWidth: "900px",
             }}
           >
             {["Next.js", "TypeScript", "React Native", "Convex", "Tailwind"].map(
@@ -87,12 +108,12 @@ export default async function Image() {
                 <div
                   key={tech}
                   style={{
-                    padding: "8px 20px",
-                    backgroundColor: "rgba(255, 255, 255, 0.1)",
+                    padding: "6px 16px",
+                    backgroundColor: "#27272a",
                     borderRadius: "9999px",
-                    fontSize: 18,
+                    fontSize: 14,
                     color: "#a1a1aa",
-                    border: "1px solid rgba(255, 255, 255, 0.1)",
+                    border: "1px solid rgba(255, 255, 255, 0.06)",
                   }}
                 >
                   {tech}
@@ -106,9 +127,9 @@ export default async function Image() {
         <div
           style={{
             position: "absolute",
-            bottom: "40px",
-            fontSize: 20,
-            color: "#52525b",
+            bottom: "32px",
+            fontSize: 16,
+            color: "#3f3f46",
           }}
         >
           {siteConfig.url.replace("https://", "")}

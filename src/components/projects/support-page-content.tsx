@@ -1,49 +1,16 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { projects, siteConfig } from "@/lib/data";
+import { getProject } from "@/lib/project-helpers";
+import { siteConfig } from "@/lib/data";
 
-interface SupportPageProps {
-  params: Promise<{ slug: string }>;
-}
-
-export async function generateStaticParams() {
-  return projects.map((project) => ({
-    slug: project.slug,
-  }));
-}
-
-export async function generateMetadata({ params }: SupportPageProps) {
-  const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
-
-  if (!project) {
-    return {
-      title: "Support Not Found",
-    };
-  }
-
-  return {
-    title: `Support | ${project.title}`,
-    description: `Get support for ${project.title}. Contact us via email or social media.`,
-    alternates: {
-      canonical: `${siteConfig.url}/projects/${slug}/support`,
-    },
-  };
-}
-
-export default async function SupportPage({ params }: SupportPageProps) {
-  const { slug } = await params;
-  const project = projects.find((p) => p.slug === slug);
-
-  if (!project) {
-    notFound();
-  }
+export function SupportPageContent({ slug }: { slug: string }) {
+  const project = getProject(slug);
+  if (!project) notFound();
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <main className="py-16">
         <div className="max-w-3xl mx-auto px-4">
-          {/* Back link */}
           <Link
             href={`/projects/${project.slug}`}
             className="inline-flex items-center gap-2 text-zinc-400 hover:text-white transition-colors mb-8"
@@ -117,19 +84,23 @@ export default async function SupportPage({ params }: SupportPageProps) {
             <div className="p-6 rounded-2xl bg-zinc-900/50 border border-white/10">
               <h3 className="font-semibold text-white text-lg mb-4">Legal</h3>
               <div className="flex gap-4">
-                <Link
-                  href={`/projects/${project.slug}/privacy`}
+                <a
+                  href={project.privacyPolicyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-zinc-400 hover:text-white transition-colors"
                 >
                   Privacy Policy
-                </Link>
+                </a>
                 <span className="text-zinc-700">|</span>
-                <Link
-                  href={`/projects/${project.slug}/terms`}
+                <a
+                  href={project.termsOfServiceUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-zinc-400 hover:text-white transition-colors"
                 >
                   Terms of Service
-                </Link>
+                </a>
               </div>
             </div>
           </div>
