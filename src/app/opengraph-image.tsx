@@ -60,6 +60,7 @@ export default async function Image() {
           {/* Name */}
           <div
             style={{
+              display: "flex",
               fontSize: 64,
               fontWeight: 700,
               color: "#fafafa",
@@ -72,6 +73,7 @@ export default async function Image() {
           {/* Title */}
           <div
             style={{
+              display: "flex",
               fontSize: 28,
               color: "#a1a1aa",
               fontWeight: 500,
@@ -83,6 +85,7 @@ export default async function Image() {
           {/* Description */}
           <div
             style={{
+              display: "flex",
               fontSize: 20,
               color: "#52525b",
               maxWidth: "700px",
@@ -108,6 +111,7 @@ export default async function Image() {
                 <div
                   key={tech}
                   style={{
+                    display: "flex",
                     padding: "6px 16px",
                     backgroundColor: "#27272a",
                     borderRadius: "9999px",
@@ -126,6 +130,7 @@ export default async function Image() {
         {/* URL at bottom */}
         <div
           style={{
+            display: "flex",
             position: "absolute",
             bottom: "32px",
             fontSize: 16,

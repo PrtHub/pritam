@@ -46,7 +46,7 @@ export const siteConfig = {
   title: "Indie Hacker & Builder",
   description:
     "Building SaaS products and iOS apps. Turning ideas into reality.",
-  url: "https://pritam.dev",
+  url: "https://pritam.cc",
   links: {
     x: "https://x.com/iPritamX",
     linkedin: "https://linkedin.com/in/pritam-ghosh-dev",

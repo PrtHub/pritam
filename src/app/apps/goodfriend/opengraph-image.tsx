@@ -4,5 +4,5 @@ export const size = ogSize;
 export const contentType = ogContentType;
 
 export default async function Image() {
-  return generateProjectOgImage("goodfriend");
+  return await generateProjectOgImage("goodfriend");
 }
