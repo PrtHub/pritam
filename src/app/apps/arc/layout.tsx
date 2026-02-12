@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/data";
 
 export const metadata: Metadata = {
   title:
-    "ARC — Circadian Rhythm Tracker | Sync Your Schedule With Your Biology",
+    "ARC: Circadian Rhythm Tracker | Sync Your Schedule With Your Biology",
   description:
     "ARC is a science-backed circadian rhythm tracker that discovers your chronotype (Lion, Bear, Wolf, Dolphin), maps your Peak Focus Windows, optimizes caffeine timing, and anchors your sleep-wake cycle. Local-first, privacy-first. Built on Huberman & Walker research.",
   keywords: [
@@ -90,7 +90,11 @@ export const metadata: Metadata = {
   },
   category: "Health & Productivity",
   icons: {
-    icon: "/apps/arc/icon.png",
+    icon: [
+      { url: "/apps/arc/icon.png" },
+      { url: "/apps/arc/icon.png", sizes: "32x32", type: "image/png" },
+    ],
+    shortcut: "/apps/arc/icon.png",
     apple: "/apps/arc/icon.png",
   },
 };

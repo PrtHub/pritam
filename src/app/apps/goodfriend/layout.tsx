@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/data";
 
 export const metadata: Metadata = {
   title:
-    "Good Friend — Stay Connected With Your Closest Friends | Private iOS App",
+    "Good Friend: Stay Connected With Your Closest Friends | Private iOS App",
   description:
     "Good Friend is a simple, private iOS app that helps you stay connected with the people who matter most. Track contact frequency, get gentle reminders, and log conversations — all stored locally on your device with zero tracking.",
   keywords: [
@@ -67,7 +67,11 @@ export const metadata: Metadata = {
   },
   category: "Lifestyle & Wellness",
   icons: {
-    icon: "/apps/goodfriend/icon.png",
+    icon: [
+      { url: "/apps/goodfriend/icon.png" },
+      { url: "/apps/goodfriend/icon.png", sizes: "32x32", type: "image/png" },
+    ],
+    shortcut: "/apps/goodfriend/icon.png",
     apple: "/apps/goodfriend/icon.png",
   },
 };

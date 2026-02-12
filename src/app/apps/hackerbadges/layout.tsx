@@ -67,6 +67,14 @@ export const metadata: Metadata = {
     canonical: `${siteConfig.url}/projects/hackerbadges`,
   },
   category: "Business & SaaS Tools",
+  icons: {
+    icon: [
+      { url: "/icon.svg" },
+      { url: "/icon.svg", sizes: "32x32", type: "image/svg+xml" },
+    ],
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
 };
 
 export default function HackerBadgesLayout({
