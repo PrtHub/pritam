@@ -38,10 +38,29 @@ export async function generateProjectOgImage(slug: string) {
     : [];
 
   // Determine the absolute base URL for image fetching.
-  // Priority: 1. Env var, 2. Vercel deployment URL, 3. Production site URL
   const baseUrl =
     process.env.NEXT_PUBLIC_APP_URL ||
-    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : siteConfig.url);
+    (process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : siteConfig.url);
+
+  // Fetch images and convert to Base64 to avoid fetch issues on Vercel Edge
+  const screenshotDataUris = await Promise.all(
+    screenshotsToShow.map(async (s) => {
+      try {
+        const url = s.url.startsWith("http") ? s.url : `${baseUrl}${s.url}`;
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(`Failed to fetch ${url}`);
+        const arrayBuffer = await response.arrayBuffer();
+        const base64 = Buffer.from(arrayBuffer).toString("base64");
+        const contentType = response.headers.get("content-type") || "image/png";
+        return `data:${contentType};base64,${base64}`;
+      } catch (error) {
+        console.error("Error fetching screenshot for OG image:", error);
+        return null;
+      }
+    })
+  );
 
   return new ImageResponse(
     (
@@ -68,33 +87,36 @@ export async function generateProjectOgImage(slug: string) {
               height: "340px",
             }}
           >
-            {screenshotsToShow.map((s, index) => (
-              <div
-                key={index}
-                style={{
-                  display: "flex",
-                  flex: 1,
-                  height: "340px",
-                  borderRadius: "20px",
-                  overflow: "hidden",
-                  border: "2px solid #27272a",
-                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.2)",
-                  backgroundColor: "#18181b",
-                }}
-              >
-                <img
-                  src={s.url.startsWith("http") ? s.url : `${baseUrl}${s.url}`}
-                  alt={s.alt}
-                  width={300} // Explicit width to help Satori
-                  height={540} // Explicit height to help Satori
+            {screenshotDataUris.map((dataUri, index) => {
+              if (!dataUri) return null;
+              return (
+                <div
+                  key={index}
                   style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
+                    display: "flex",
+                    flex: 1,
+                    height: "340px",
+                    borderRadius: "20px",
+                    overflow: "hidden",
+                    border: "2px solid #27272a",
+                    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.2)",
+                    backgroundColor: "#18181b",
                   }}
-                />
-              </div>
-            ))}
+                >
+                  <img
+                    src={dataUri}
+                    alt={screenshotsToShow[index].alt}
+                    width={300}
+                    height={540}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </div>
+              );
+            })}
           </div>
         )}
 
@@ -170,12 +192,17 @@ export async function generateProjectOgImage(slug: string) {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  fontSize: 16,
-                  color: "#fafafa",
-                  fontWeight: 700,
                 }}
               >
-                {siteConfig.name.charAt(0)}
+                <img
+                  src={`${baseUrl}/icon.svg`}
+                  width={20}
+                  height={20}
+                  style={{
+                    width: "20px",
+                    height: "20px",
+                  }}
+                />
               </div>
               <div
                 style={{
