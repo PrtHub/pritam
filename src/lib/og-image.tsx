@@ -37,8 +37,11 @@ export async function generateProjectOgImage(slug: string) {
     ? project.screenshots!.slice(0, 3)
     : [];
 
-  // Construct absolute URLs for screenshots (assuming they are in /public)
-  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000";
+  // Determine the absolute base URL for image fetching.
+  // Priority: 1. Env var, 2. Vercel deployment URL, 3. Production site URL
+  const baseUrl =
+    process.env.NEXT_PUBLIC_APP_URL ||
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : siteConfig.url);
 
   return new ImageResponse(
     (
@@ -80,8 +83,10 @@ export async function generateProjectOgImage(slug: string) {
                 }}
               >
                 <img
-                  src={`${baseUrl}${s.url}`}
+                  src={s.url.startsWith("http") ? s.url : `${baseUrl}${s.url}`}
                   alt={s.alt}
+                  width={300} // Explicit width to help Satori
+                  height={540} // Explicit height to help Satori
                   style={{
                     width: "100%",
                     height: "100%",
