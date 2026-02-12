@@ -1,5 +1,7 @@
 import { ImageResponse } from "next/og";
-import { siteConfig } from "@/lib/data";
+import { projects, siteConfig } from "@/lib/data";
+import fs from "fs/promises";
+import path from "path";
 
 export const alt = `${siteConfig.name} - ${siteConfig.title}`;
 export const size = {
@@ -12,6 +14,19 @@ export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 export default async function Image() {
+  const collageApps = ["arc", "goodfriend"]; // Use just two for a cleaner background
+  const screenshotUris = await Promise.all(
+    collageApps.map(async (slug) => {
+      const p = projects.find(proj => proj.slug === slug);
+      if (!p || !p.screenshots || p.screenshots.length === 0) return null;
+      try {
+        const filePath = path.join(process.cwd(), "public", p.screenshots[0].url);
+        const buffer = await fs.readFile(filePath);
+        return `data:image/png;base64,${buffer.toString("base64")}`;
+      } catch (e) { return null; }
+    })
+  );
+
   return new ImageResponse(
     (
       <div
@@ -19,128 +34,84 @@ export default async function Image() {
           height: "100%",
           width: "100%",
           display: "flex",
-          flexDirection: "column",
+          backgroundColor: "#F9FAFB",
+          backgroundImage: "radial-gradient(circle at 10% 10%, #F3F4F6 0%, transparent 40%), radial-gradient(circle at 90% 90%, #F3F4F6 0%, transparent 40%)",
+          fontFamily: "Inter, system-ui, sans-serif",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#09090b",
-          fontFamily: "system-ui, -apple-system, sans-serif",
+          position: "relative",
+          overflow: "hidden",
         }}
       >
-        {/* Card container */}
+        {/* Background Decorative Screens */}
+        <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, display: "flex", opacity: 0.08 }}>
+          {screenshotUris[0] && (
+            <div style={{ display: "flex", position: "absolute", width: "350px", height: "700px", transform: "rotate(-12deg) translate(-150px, -50px)", borderRadius: "50px", border: "1px solid #000", overflow: "hidden" }}>
+              <img src={screenshotUris[0]} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+          )}
+          {screenshotUris[1] && (
+            <div style={{ display: "flex", position: "absolute", width: "350px", height: "700px", transform: "rotate(12deg) translate(950px, -50px)", borderRadius: "50px", border: "1px solid #000", overflow: "hidden" }}>
+              <img src={screenshotUris[1]} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            </div>
+          )}
+        </div>
+
+        {/* Central Identity Card */}
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
-            gap: "24px",
-            backgroundColor: "#18181b",
-            borderRadius: "24px",
-            border: "1px solid #27272a",
-            padding: "60px 80px",
-            maxWidth: "1000px",
+            padding: "70px 100px",
+            backgroundColor: "rgba(255, 255, 255, 0.85)",
+            backdropFilter: "blur(20px)",
+            borderRadius: "50px",
+            border: "1px solid rgba(255, 255, 255, 0.4)",
+            boxShadow: "0 25px 60px rgba(0,0,0,0.06)",
+            zIndex: 10,
           }}
         >
-          {/* Avatar initial */}
-          <div
-            style={{
-              width: "64px",
-              height: "64px",
-              borderRadius: "16px",
-              backgroundColor: "#27272a",
-              border: "1px solid rgba(255, 255, 255, 0.06)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontSize: 28,
-              color: "#fafafa",
-              fontWeight: 700,
-            }}
-          >
-            {siteConfig.name.charAt(0)}
+          {/* Logo */}
+          <div style={{ display: "flex", width: "90px", height: "90px", borderRadius: "24px", backgroundColor: "#111", alignItems: "center", justifyContent: "center", fontSize: 48, fontWeight: 900, color: "#fff", marginBottom: "32px", boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}>
+            {siteConfig.name.charAt(0).toUpperCase()}
           </div>
 
           {/* Name */}
-          <div
-            style={{
-              display: "flex",
-              fontSize: 64,
-              fontWeight: 700,
-              color: "#fafafa",
-              letterSpacing: "-2px",
-            }}
-          >
-            {siteConfig.name}
+          <div style={{ display: "flex", fontSize: 100, fontWeight: 950, color: "#111", letterSpacing: "-6px", lineHeight: 0.9, marginBottom: "16px" }}>
+            {siteConfig.name.toUpperCase()}
           </div>
 
-          {/* Title */}
-          <div
-            style={{
-              display: "flex",
-              fontSize: 28,
-              color: "#a1a1aa",
-              fontWeight: 500,
-            }}
-          >
+          {/* Tagline */}
+          <div style={{ display: "flex", fontSize: 28, fontWeight: 600, color: "#6B7280", letterSpacing: "-0.5px", marginBottom: "40px" }}>
             {siteConfig.title}
           </div>
 
-          {/* Description */}
-          <div
-            style={{
-              display: "flex",
-              fontSize: 20,
-              color: "#52525b",
-              maxWidth: "700px",
-              textAlign: "center",
-              lineHeight: 1.5,
-            }}
-          >
-            {siteConfig.description}
-          </div>
-
-          {/* Tech Stack Pills */}
-          <div
-            style={{
-              display: "flex",
-              gap: "8px",
-              marginTop: "12px",
-              flexWrap: "wrap",
-              justifyContent: "center",
-            }}
-          >
-            {["Next.js", "TypeScript", "React Native", "Convex", "Tailwind"].map(
-              (tech) => (
-                <div
-                  key={tech}
-                  style={{
-                    display: "flex",
-                    padding: "6px 16px",
-                    backgroundColor: "#27272a",
-                    borderRadius: "9999px",
-                    fontSize: 14,
-                    color: "#a1a1aa",
-                    border: "1px solid rgba(255, 255, 255, 0.06)",
-                  }}
-                >
-                  {tech}
-                </div>
-              )
-            )}
+          {/* Stats Bar */}
+          <div style={{ display: "flex", gap: "48px", alignItems: "center" }}>
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <div style={{ fontSize: 32, fontWeight: 900, color: "#111" }}>4+</div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: "1px" }}>Products</div>
+            </div>
+            <div style={{ width: "1px", height: "30px", backgroundColor: "#E5E7EB" }} />
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <div style={{ fontSize: 32, fontWeight: 900, color: "#111" }}>270+</div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: "1px" }}>Users</div>
+            </div>
+            <div style={{ width: "1px", height: "30px", backgroundColor: "#E5E7EB" }} />
+            <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <div style={{ fontSize: 32, fontWeight: 900, color: "#111" }}>iOS</div>
+              <div style={{ fontSize: 14, fontWeight: 700, color: "#9CA3AF", textTransform: "uppercase", letterSpacing: "1px" }}>Focus</div>
+            </div>
           </div>
         </div>
 
-        {/* URL at bottom */}
-        <div
-          style={{
-            display: "flex",
-            position: "absolute",
-            bottom: "32px",
-            fontSize: 16,
-            color: "#3f3f46",
-          }}
-        >
-          {siteConfig.url.replace("https://", "")}
+        {/* Footer Signature */}
+        <div style={{ display: "flex", position: "absolute", bottom: "74px", alignItems: "center", gap: "12px" }}>
+          <div style={{ display: "flex", fontSize: 20, fontWeight: 800, color: "#111", letterSpacing: "-0.5px" }}>{siteConfig.url.replace("https://", "")}</div>
+          <div style={{ width: "6px", height: "6px", borderRadius: "3px", backgroundColor: "#3b82f6" }} />
+          <div style={{ display: "flex", fontSize: 18, fontWeight: 600, color: "#9CA3AF" }}>Indie Hacker & Builder</div>
         </div>
       </div>
     ),
