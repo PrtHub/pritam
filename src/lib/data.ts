@@ -35,6 +35,10 @@ export interface Project {
     trialDays?: number;
     note?: string;
   };
+  screenshots?: {
+    url: string;
+    alt: string;
+  }[];
 }
 
 export const siteConfig = {
@@ -67,7 +71,7 @@ export const projects: Project[] = [
       "Biohacking",
       "discipline",
     ],
-    link: "/projects/arc",
+    link: "/apps/arc",
     featured: true,
     metrics: {
       revenue: "$45",
@@ -215,6 +219,16 @@ export const projects: Project[] = [
       "https://www.notion.so/Privacy-Policy-for-ARC-Sync-Your-Life-2f2af72016c9802bace6fddd4a1ed526",
     termsOfServiceUrl:
       "https://www.notion.so/Terms-of-Service-for-ARC-Sync-Your-Life-2f2af72016c980c8be7be0bacf1ee076",
+    screenshots: [
+      { url: "/apps/arc/01.png", alt: "ARC Chronotype Discovery" },
+      { url: "/apps/arc/02.png", alt: "Daily Trajectory Timeline" },
+      { url: "/apps/arc/03.png", alt: "Peak Focus Windows" },
+      { url: "/apps/arc/04.png", alt: "Caffeine Cutoff Tracker" },
+      { url: "/apps/arc/05.png", alt: "Sleep & Wake Optimization" },
+      { url: "/apps/arc/06.png", alt: "Circadian Rhythm Analytics" },
+      { url: "/apps/arc/07.png", alt: "Biological Briefings" },
+      { url: "/apps/arc/08.png", alt: "Settings & Preferences" },
+    ],
   },
   {
     slug: "hackerbadges",
@@ -231,7 +245,7 @@ export const projects: Project[] = [
       "Indie Hackers",
       "Neobrutalism",
     ],
-    link: "/projects/hackerbadges",
+    link: "/apps/hackerbadges",
     featured: true,
     metrics: {
       revenue: "$38",
@@ -371,11 +385,184 @@ export const projects: Project[] = [
     privacyPolicyUrl: "https://hackerbadges.com/privacy",
     termsOfServiceUrl: "https://hackerbadges.com/terms",
   },
+  {
+    slug: "goodfriend",
+    title: "Good Friend: Stay Connected",
+    description:
+      "Never miss a moment with the people who matter. Intuitive reminders for staying connected with your closest friends.",
+    fullDescription:
+      "Good Friend is a simple, private iOS app that helps you stay connected with the people who matter most. Set contact frequency for each friend, get gentle reminders when it's time to reach out, and log your conversations — all stored locally on your device with zero tracking.",
+    tags: [
+      "iOS",
+      "Expo",
+      "Personal CRM",
+      "Relationships",
+      "Social",
+      "Wellness",
+      "Privacy-First",
+    ],
+    link: "/apps/goodfriend",
+    featured: true,
+    metrics: {
+      revenue: "$0",
+      revenueLabel: "Coming Soon",
+      users: "Beta",
+      usersLabel: "Status",
+    },
+    features: [
+      "Smart onboarding — Contact import, priority ranking, frequency setup in 5 minutes",
+      "Today tab — Action cards showing who needs attention, sorted by priority",
+      "Circle view — All your friends at a glance with last contact status",
+      "Birthday & date tracking — Never miss important dates with smart notifications",
+      "Gift idea & notes — Remember what your friends love and context from past convos",
+      "Post-call logging — Quick 'What did you talk about?' capture after connections",
+      "Overdue indicators — Visual alerts for friends you haven't reached in a while",
+      "100% local storage — SQLite on-device, no cloud, no tracking, no accounts",
+      "Customizable reminders — Gentle, Balanced, or Accountable notification styles",
+      "RevenueCat subscription — 3-day free trial, then $3.99/week or $29.99/year",
+    ],
+    howItWorks: [
+      {
+        step: "01",
+        title: "Import Your Circle",
+        description:
+          "Add 5+ of your closest friends from your contacts. Select your top 3 priority friends and set how often you want to connect with each.",
+      },
+      {
+        step: "02",
+        title: "Get Gentle Nudges",
+        description:
+          "Good Friend reminds you when it's time to reach out based on your contact frequency. Choose your reminder style — Gentle, Balanced, or Accountable.",
+      },
+      {
+        step: "03",
+        title: "Stay Accountable",
+        description:
+          "Log your connections with a tap, capture what you talked about, and watch your streak grow. All your data stays on your phone.",
+      },
+    ],
+    highlights: [
+      {
+        title: "Designed for Real Friendships",
+        description:
+          "Not a social network. Just you, your friends, and a gentle nudge when it's time to reconnect.",
+      },
+      {
+        title: "100% Private & Local",
+        description:
+          "Every conversation log, note, and birthday stays on your device. No accounts, no tracking, no cloud.",
+      },
+      {
+        title: "Simple & Distraction-Free",
+        description:
+          "No feeds, no likes, no notifications from the app itself — just timely reminders to reach out to people you care about.",
+      },
+      {
+        title: "Built with React Native",
+        description:
+          "Native iOS performance powered by Expo, with Drizzle ORM for rock-solid local data management.",
+      },
+    ],
+    targetAudience: [
+      {
+        title: "Busy Founders & Creators",
+        description:
+          "You care about your friendships but get buried in work. Good Friend keeps you accountable without adding another task.",
+        icon: "rocket",
+      },
+      {
+        title: "Introverts & Remote Workers",
+        description:
+          "Connection doesn't always come naturally, but it matters. A gentle nudge to stay in touch with your inner circle.",
+        icon: "heart",
+      },
+      {
+        title: "Long-Distance Friends",
+        description:
+          "Miles apart but still close. Track important dates, birthdays, and keep a record of what's happening in each other's lives.",
+        icon: "laptop",
+      },
+      {
+        title: "People Who Value Privacy",
+        description:
+          "Done with apps that harvest your data. Good Friend respects your privacy — everything stays on your device.",
+        icon: "pen",
+      },
+    ],
+    faq: [
+      {
+        question: "Is Good Friend really free?",
+        answer:
+          "Good Friend offers a 3-day free trial with full access. After that, you can subscribe at $3.99/week or $29.99/year. We also have plans for a free tier with limited friends soon.",
+      },
+      {
+        question: "How many friends can I add?",
+        answer:
+          "You can add as many friends as you want. We recommend focusing on your closest 5-20 friends for the best experience — these are the people who matter most.",
+      },
+      {
+        question: "Does Good Friend access my contacts?",
+        answer:
+          "Good Friend only accesses contacts you explicitly select during setup. We don't auto-import your entire contact list or sync anything to the cloud.",
+      },
+      {
+        question: "What happens if I delete the app?",
+        answer:
+          "All your data is stored locally on your device. If you delete the app, your data is deleted too. We recommend subscribing so you have access to the app continuously.",
+      },
+      {
+        question: "Can I export my data?",
+        answer:
+          "Currently, Good Friend stores everything locally on your device. Data export is on our roadmap.",
+      },
+      {
+        question: "Why no cloud sync?",
+        answer:
+          "We designed Good Friend to be private by default. No accounts, no servers, no tracking. Your friendships are yours alone.",
+      },
+    ],
+    pricing: {
+      plans: [
+        {
+          name: "3-Day Trial",
+          price: "Free",
+          period: "trial",
+        },
+        {
+          name: "Weekly",
+          price: "$3.99",
+          period: "week",
+        },
+        {
+          name: "Yearly",
+          price: "$29.99",
+          period: "year",
+          badge: "Save 75%",
+          highlight: true,
+        },
+      ],
+      trialDays: 3,
+      note: "Payment will be charged to your Apple ID account at confirmation of purchase. Subscription automatically renews unless canceled at least 24 hours before the end of the current period. Manage subscriptions in your App Store account settings.",
+    },
+    appStoreUrl: "https://apps.apple.com/app/good-friend/id6740234567",
+    supportEmail: "pritamfinds@gmail.com",
+    privacyPolicyUrl: "https://www.notion.so/Privacy-Policy-Good-Friend-abc123",
+    termsOfServiceUrl:
+      "https://www.notion.so/Terms-of-Service-Good-Friend-abc123",
+    screenshots: [
+      { url: "/apps/goodfriend/01.png", alt: "Onboarding - Import Friends" },
+      { url: "/apps/goodfriend/02.png", alt: "Today Tab - Action Cards" },
+      { url: "/apps/goodfriend/03.png", alt: "Circle View - Friends Overview" },
+      { url: "/apps/goodfriend/04.png", alt: "Friend Details - Settings" },
+      { url: "/apps/goodfriend/05.png", alt: "You Tab - Stats Dashboard" },
+      { url: "/apps/goodfriend/06.png", alt: "Notifications & Reminders" },
+    ],
+  },
 ];
 
 // Calculate totals from projects
-export const totalRevenue = "$150";
-export const totalUsers = "200+";
+export const totalRevenue = "$83";
+export const totalUsers = "270+";
 
 export const skills = [
   "Next.js",

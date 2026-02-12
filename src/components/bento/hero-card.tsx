@@ -31,7 +31,7 @@ export function HeroCard() {
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
           </span>
-          Available for projects
+          Shipping...
         </Badge>
       </div>
 
@@ -53,8 +53,8 @@ export function HeroCard() {
           <p className="text-lg text-zinc-400 max-w-md leading-relaxed">
             Indie hacker crafting{" "}
             <span className="text-white">SaaS products</span> and{" "}
-            <span className="text-white">iOS apps</span> that solve
-            real problems and delight users.
+            <span className="text-white">iOS apps</span> that solve real
+            problems and delight users.
           </p>
         </div>
       </div>

@@ -10,7 +10,7 @@ export function ProjectPricing({ project }: ProjectPricingProps) {
   if (!project.pricing) return null;
 
   return (
-    <section className="max-w-4xl mx-auto px-4 py-16 border-t border-white/10">
+    <section className="max-w-5xl mx-auto px-4 py-16 border-t border-white/10">
       <h2 className="text-2xl font-bold text-white mb-2">
         Unlock {project.title} Pro
       </h2>
@@ -39,14 +39,21 @@ export function ProjectPricing({ project }: ProjectPricingProps) {
 
             <div className="text-sm text-zinc-400 mb-3">{plan.name}</div>
             <div className="flex items-baseline gap-1 mb-1">
-              <span className={`text-3xl font-bold ${plan.highlight ? "text-emerald-400" : "text-white"}`}>
+              <span
+                className={`text-3xl font-bold ${plan.highlight ? "text-emerald-400" : "text-white"}`}
+              >
                 {plan.price}
               </span>
               <span className="text-sm text-zinc-500">/{plan.period}</span>
             </div>
 
             {project.appStoreUrl && (
-              <a href={project.appStoreUrl} target="_blank" rel="noopener noreferrer" className="block mt-4">
+              <a
+                href={project.appStoreUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block mt-4"
+              >
                 <Button
                   className={`w-full ${
                     plan.highlight

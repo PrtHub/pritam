@@ -93,7 +93,7 @@ export default function Home() {
         <MarqueeCard />
 
         {/* Projects Section */}
-        <section id="projects">
+        <section id="apps">
           <BentoGrid className="py-8">
             <ProjectsGrid />
           </BentoGrid>

@@ -41,10 +41,10 @@ export function Navbar() {
             About
           </Link>
           <Link
-            href="#projects"
+            href="#apps"
             className="text-sm text-zinc-400 hover:text-white transition-colors"
           >
-            Projects
+            Apps
           </Link>
           <Link
             href="#contact"

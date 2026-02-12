@@ -21,7 +21,7 @@ export function ProjectFaq({ project }: ProjectFaqProps) {
   };
 
   return (
-    <section className="max-w-4xl mx-auto px-4 py-16 border-t border-white/10">
+    <section className="max-w-5xl mx-auto px-4 py-16 border-t border-white/10">
       {/* FAQ JSON-LD for Google rich results */}
       <script
         type="application/ld+json"

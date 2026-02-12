@@ -3,6 +3,6 @@ import { ProjectPageContent } from "@/components/projects/project-page-content";
 
 export const metadata = getProjectMetadata("hackerbadges");
 
-export default function HackerbadgesPage() {
+export default function HackerBadgesPage() {
   return <ProjectPageContent slug="hackerbadges" />;
 }

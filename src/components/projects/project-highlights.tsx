@@ -8,7 +8,7 @@ export function ProjectHighlights({ project }: ProjectHighlightsProps) {
   if (!project.highlights || project.highlights.length === 0) return null;
 
   return (
-    <section className="max-w-4xl mx-auto px-4 py-16 border-t border-white/10">
+    <section className="max-w-5xl mx-auto px-4 py-16 border-t border-white/10">
       <h2 className="text-2xl font-bold text-white mb-2">
         Why {project.title}?
       </h2>

@@ -8,7 +8,7 @@ export function HowItWorks({ project }: HowItWorksProps) {
   if (!project.howItWorks || project.howItWorks.length === 0) return null;
 
   return (
-    <section className="max-w-4xl mx-auto px-4 py-16 border-t border-white/10">
+    <section className="max-w-5xl mx-auto px-4 py-16 border-t border-white/10">
       <h2 className="text-2xl font-bold text-white mb-2">How It Works</h2>
       <p className="text-zinc-400 mb-10">
         Get started with {project.title} in three simple steps.
