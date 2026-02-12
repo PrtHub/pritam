@@ -1,5 +1,7 @@
 import { ImageResponse } from "next/og";
 import { projects, siteConfig } from "@/lib/data";
+import fs from "fs/promises";
+import path from "path";
 
 export const ogSize = {
   width: 1200,
@@ -37,14 +39,22 @@ export async function generateProjectOgImage(slug: string) {
     ? project.screenshots!.slice(0, 3)
     : [];
 
-  // Determine the absolute base URL for image fetching.
-  // We prioritize NEXT_PUBLIC_APP_URL, then the specific Vercel deployment URL, 
-  // and finally the production site URL.
-  const baseUrl =
-    process.env.NEXT_PUBLIC_APP_URL ||
-    (process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : siteConfig.url);
+  // Read images from filesystem to avoid fetch issues in production
+  const screenshotDataUris = await Promise.all(
+    screenshotsToShow.map(async (s) => {
+      try {
+        const filePath = path.join(process.cwd(), "public", s.url);
+        const buffer = await fs.readFile(filePath);
+        const base64 = buffer.toString("base64");
+        const ext = path.extname(s.url).toLowerCase().replace(".", "");
+        const contentType = ext === "png" ? "image/png" : "image/jpeg";
+        return `data:${contentType};base64,${base64}`;
+      } catch (error) {
+        console.error(`Error reading screenshot for OG image: ${s.url}`, error);
+        return null;
+      }
+    })
+  );
 
   return new ImageResponse(
     (
@@ -71,33 +81,36 @@ export async function generateProjectOgImage(slug: string) {
               height: "340px",
             }}
           >
-            {screenshotsToShow.map((s, index) => (
-              <div
-                key={index}
-                style={{
-                  display: "flex",
-                  flex: 1,
-                  height: "340px",
-                  borderRadius: "20px",
-                  overflow: "hidden",
-                  border: "2px solid #27272a",
-                  boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.2)",
-                  backgroundColor: "#18181b",
-                }}
-              >
-                <img
-                  src={s.url.startsWith("http") ? s.url : `${baseUrl}${s.url}`}
-                  alt={s.alt}
-                  width={300}
-                  height={540}
+            {screenshotDataUris.map((dataUri, index) => {
+              if (!dataUri) return null;
+              return (
+                <div
+                  key={index}
                   style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
+                    display: "flex",
+                    flex: 1,
+                    height: "340px",
+                    borderRadius: "20px",
+                    overflow: "hidden",
+                    border: "2px solid #27272a",
+                    boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.2)",
+                    backgroundColor: "#18181b",
                   }}
-                />
-              </div>
-            ))}
+                >
+                  <img
+                    src={dataUri}
+                    alt={screenshotsToShow[index].alt}
+                    width={300}
+                    height={540}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </div>
+              );
+            })}
           </div>
         )}
 
