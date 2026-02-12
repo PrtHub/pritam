@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/data";
 import { PersonJsonLd, WebsiteJsonLd } from "@/components/json-ld";
+import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -82,9 +84,23 @@ export default function RootLayout({
       <head>
         <PersonJsonLd />
         <WebsiteJsonLd />
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-3696S8V3NY"
+        />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-3696S8V3NY');
+          `}
+        </Script>
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );
