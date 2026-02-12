@@ -18,19 +18,27 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-zinc-950/80 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+        ? "bg-zinc-950/80 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20"
+        : "bg-transparent"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         <Link
           href="/"
-          className="font-bold text-xl tracking-tight text-white hover:opacity-80 transition-opacity"
+          className="flex items-center gap-3 group hover:opacity-100 transition-opacity"
         >
-          {siteConfig.name}
-          <span className="text-zinc-500">.</span>
+          <div className="w-10 h-10 rounded-xl overflow-hidden border border-white/10 transition-colors duration-300">
+            <img
+              src="/icon.svg"
+              alt="Pritam Icon"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <span className="font-bold text-xl tracking-tight text-white transition-opacity">
+            {siteConfig.name}
+            <span className="text-zinc-500">.</span>
+          </span>
         </Link>
 
         <div className="hidden sm:flex items-center gap-8">

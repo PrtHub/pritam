@@ -60,6 +60,24 @@ export function ProjectHero({ project }: ProjectHeroProps) {
             </svg>
             Back to Home
           </Link>
+          {/* Icon */}
+          {["arc", "goodfriend"].includes(project.slug) ? (
+            <div className="w-20 h-20 rounded-2xl overflow-hidden mb-6 border border-white/10">
+              <Image
+                src={`/apps/${project.slug}/icon.png`}
+                alt={`${project.title} icon`}
+                width={80}
+                height={80}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          ) : (
+            <div className="w-20 h-20 rounded-2xl bg-zinc-900 border border-white/10 flex items-center justify-center text-white font-bold text-4xl mb-6">
+              {project.title.charAt(0)}
+              <span className="text-zinc-500 text-lg mt-2">.</span>
+            </div>
+          )}
+
           {/* Title */}
           <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-white mb-4">
             {project.title}
@@ -178,11 +196,10 @@ export function ProjectHero({ project }: ProjectHeroProps) {
                   {project.screenshots!.map((screenshot, index) => (
                     <div
                       key={index}
-                      className={`absolute inset-0 transition-opacity duration-300 ${
-                        index === currentScreenshot
-                          ? "opacity-100"
-                          : "opacity-0"
-                      }`}
+                      className={`absolute inset-0 transition-opacity duration-300 ${index === currentScreenshot
+                        ? "opacity-100"
+                        : "opacity-0"
+                        }`}
                     >
                       <Image
                         src={screenshot.url}
@@ -244,11 +261,10 @@ export function ProjectHero({ project }: ProjectHeroProps) {
                       <button
                         key={index}
                         onClick={() => setCurrentScreenshot(index)}
-                        className={`w-2 h-2 rounded-full transition-all ${
-                          index === currentScreenshot
-                            ? "bg-emerald-500 w-6"
-                            : "bg-white/30 hover:bg-white/50"
-                        }`}
+                        className={`w-2 h-2 rounded-full transition-all ${index === currentScreenshot
+                          ? "bg-emerald-500 w-6"
+                          : "bg-white/30 hover:bg-white/50"
+                          }`}
                         aria-label={`Go to screenshot ${index + 1}`}
                       />
                     ))}

@@ -89,6 +89,10 @@ export const metadata: Metadata = {
     canonical: `${siteConfig.url}/projects/arc`,
   },
   category: "Health & Productivity",
+  icons: {
+    icon: "/apps/arc/icon.png",
+    apple: "/apps/arc/icon.png",
+  },
 };
 
 export default function ArcLayout({ children }: { children: React.ReactNode }) {

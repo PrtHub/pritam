@@ -66,6 +66,10 @@ export const metadata: Metadata = {
     canonical: `${siteConfig.url}/projects/goodfriend`,
   },
   category: "Lifestyle & Wellness",
+  icons: {
+    icon: "/apps/goodfriend/icon.png",
+    apple: "/apps/goodfriend/icon.png",
+  },
 };
 
 export default function GoodFriendLayout({

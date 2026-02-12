@@ -74,9 +74,9 @@ export const projects: Project[] = [
     link: "/apps/arc",
     featured: true,
     metrics: {
-      revenue: "$45",
+      revenue: "$49",
       revenueLabel: "Revenue",
-      users: "70",
+      users: "75",
       usersLabel: "Customers",
     },
     features: [

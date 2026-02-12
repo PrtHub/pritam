@@ -20,7 +20,7 @@ export function HeroCard() {
       />
 
       {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-br from-white/3 to-transparent" />
 
       <div className="relative z-10">
         <Badge
@@ -36,7 +36,7 @@ export function HeroCard() {
       </div>
 
       <div className="relative z-10 space-y-4">
-        <div className="w-20 h-20 rounded-2xl overflow-hidden bg-zinc-800 ring-2 ring-white/10">
+        <div className="w-20 h-20 rounded-2xl overflow-hidden bg-zinc-800">
           <Image
             src="https://unavatar.io/twitter/iPritamX"
             alt={siteConfig.name}
