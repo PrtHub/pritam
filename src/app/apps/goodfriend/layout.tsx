@@ -47,23 +47,23 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Good Friend — Stay Connected With Your Closest Friends",
+    title: "Good Friend: Stay Connected With Your Closest Friends",
     description:
       "A simple, private iOS app that reminds you to stay in touch with the people who matter. Zero tracking. All local.",
     siteName: "Good Friend",
     locale: "en_US",
     type: "website",
-    url: `${siteConfig.url}/projects/goodfriend`,
+    url: `${siteConfig.url}/apps/goodfriend`,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Good Friend — Never Miss a Moment",
+    title: "Good Friend: Never Miss a Moment",
     description:
       "Simple reminders to stay connected with your closest friends. Private. Local. No tracking.",
     creator: "@iPritamX",
   },
   alternates: {
-    canonical: `${siteConfig.url}/projects/goodfriend`,
+    canonical: `${siteConfig.url}/apps/goodfriend`,
   },
   category: "Lifestyle & Wellness",
   icons: {

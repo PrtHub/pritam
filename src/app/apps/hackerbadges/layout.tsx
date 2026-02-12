@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     siteName: "HackerBadges",
     locale: "en_US",
     type: "website",
-    url: `${siteConfig.url}/projects/hackerbadges`,
+    url: `${siteConfig.url}/apps/hackerbadges`,
   },
   twitter: {
     card: "summary_large_image",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     creator: "@iPritamX",
   },
   alternates: {
-    canonical: `${siteConfig.url}/projects/hackerbadges`,
+    canonical: `${siteConfig.url}/apps/hackerbadges`,
   },
   category: "Business & SaaS Tools",
   icons: {

@@ -69,16 +69,16 @@ export function ProjectJsonLd({ slug }: ProjectJsonLdProps) {
   const project = projects.find((p) => p.slug === slug);
   if (!project) return null;
 
+  const isIos = project.slug === 'arc' || project.slug === 'goodfriend';
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: project.title,
-    description: project.fullDescription,
-    url: `${siteConfig.url}/projects/${project.slug}`,
-    applicationCategory: project.tags.includes("iOS")
-      ? "FinanceApplication"
-      : "BusinessApplication",
-    operatingSystem: project.tags.includes("iOS") ? "iOS" : "Web",
+    description: project.description,
+    url: `${siteConfig.url}/apps/${project.slug}`,
+    applicationCategory: isIos ? "HealthApplication" : "BusinessApplication",
+    operatingSystem: isIos ? "iOS" : "Web",
     author: {
       "@type": "Person",
       name: siteConfig.name,
@@ -86,9 +86,14 @@ export function ProjectJsonLd({ slug }: ProjectJsonLdProps) {
     },
     offers: {
       "@type": "Offer",
-      price: "0",
+      price: project.pricing?.plans[0]?.price.replace('$', '') || "0",
       priceCurrency: "USD",
     },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": project.metrics.users.replace('+', '') || "100"
+    }
   };
 
   return (

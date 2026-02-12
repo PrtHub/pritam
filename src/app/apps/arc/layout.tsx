@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     siteName: "ARC",
     locale: "en_US",
     type: "website",
-    url: `${siteConfig.url}/projects/arc`,
+    url: `${siteConfig.url}/apps/arc`,
   },
   twitter: {
     card: "summary_large_image",
@@ -86,7 +86,7 @@ export const metadata: Metadata = {
     creator: "@iPritamX",
   },
   alternates: {
-    canonical: `${siteConfig.url}/projects/arc`,
+    canonical: `${siteConfig.url}/apps/arc`,
   },
   category: "Health & Productivity",
   icons: {
