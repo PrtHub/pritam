@@ -74,9 +74,9 @@ export const projects: Project[] = [
     link: "/apps/arc",
     featured: true,
     metrics: {
-      revenue: "$49",
+      revenue: "$83",
       revenueLabel: "Revenue",
-      users: "75",
+      users: "85",
       usersLabel: "Customers",
     },
     features: [
@@ -561,8 +561,8 @@ export const projects: Project[] = [
 ];
 
 // Calculate totals from projects
-export const totalRevenue = "$83";
-export const totalUsers = "270+";
+export const totalRevenue = "$121";
+export const totalUsers = "300+";
 
 export const skills = [
   "Next.js",
