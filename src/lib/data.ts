@@ -405,9 +405,9 @@ export const projects: Project[] = [
     featured: true,
     metrics: {
       revenue: "$0",
-      revenueLabel: "Coming Soon",
-      users: "Beta",
-      usersLabel: "Status",
+      revenueLabel: "Revenue",
+      users: "11",
+      usersLabel: "Active Users",
     },
     features: [
       "Smart onboarding — Contact import, priority ranking, frequency setup in 5 minutes",
@@ -544,7 +544,8 @@ export const projects: Project[] = [
       trialDays: 3,
       note: "Payment will be charged to your Apple ID account at confirmation of purchase. Subscription automatically renews unless canceled at least 24 hours before the end of the current period. Manage subscriptions in your App Store account settings.",
     },
-    appStoreUrl: "https://apps.apple.com/app/good-friend/id6740234567",
+    appStoreUrl:
+      "https://apps.apple.com/us/app/goodfriend-stay-connected/id6758581803",
     supportEmail: "pritamfinds@gmail.com",
     privacyPolicyUrl: "https://www.notion.so/Privacy-Policy-Good-Friend-abc123",
     termsOfServiceUrl:
