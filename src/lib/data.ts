@@ -74,9 +74,9 @@ export const projects: Project[] = [
     link: "/apps/arc",
     featured: true,
     metrics: {
-      revenue: "$83",
+      revenue: "$144",
       revenueLabel: "Revenue",
-      users: "85",
+      users: "145",
       usersLabel: "Customers",
     },
     features: [
@@ -559,11 +559,169 @@ export const projects: Project[] = [
       { url: "/apps/goodfriend/06.png", alt: "Notifications & Reminders" },
     ],
   },
+  {
+    slug: "pickone",
+    title: "Pick One — Decision Maker",
+    description:
+      "Stop second-guessing. Pick One is a fast randomization engine built around the Commitment Pact — once the machine decides, you commit. Industrial Noir aesthetic, zero subscriptions.",
+    fullDescription:
+      "In an era of decision fatigue, Pick One acts as the final arbiter. Built around the philosophy of The Pact — once the machine selects an outcome, you commit to it. No second-guessing, no infinite scrolling, no regret spirals. Add your options, hit Decide, get a verdict. The Sacred Veto gives you one override per session. The Decision Vault tracks every choice you've made. Built with an uncompromising Industrial Noir aesthetic that makes every verdict feel final.",
+    tags: [
+      "iOS",
+      "Expo",
+      "React Native",
+      "Utilities",
+      "Productivity",
+      "Decision Making",
+    ],
+    link: "/apps/pickone",
+    featured: true,
+    metrics: {
+      revenue: "$0",
+      revenueLabel: "Coming Soon",
+      users: "Beta",
+      usersLabel: "Status",
+    },
+    features: [
+      "The Workspace — minimalist dashboard to input options and hit Decide in seconds",
+      "Sacred Veto — reject a verdict and trigger a re-spin (3 vetos, 5-min recharge)",
+      "Commitment Pact — psychological lock-in that makes the machine's verdict feel final",
+      "Decision Vault — full history log of every option set and machine verdict",
+      "Kits — pre-built decision blueprints for food, entertainment, and wellness",
+      "Custom Kits — build and save your own reusable option sets",
+      "Veto Recharge Notification — local alert when your vetos are restored",
+      "Daily Nudge — rotating 8PM prompt to re-engage with the app",
+      "Pick One Pro — unlimited daily spins via one-time lifetime purchase ($12.99)",
+      "Local-first architecture — SQLite on-device, no accounts, no cloud",
+    ],
+    howItWorks: [
+      {
+        step: "01",
+        title: "Add Your Options",
+        description:
+          "Open the Workspace and type in your choices — restaurants, movies, tasks, whatever you're stuck on. Or load a pre-built Kit to skip the setup.",
+      },
+      {
+        step: "02",
+        title: "Hit Decide",
+        description:
+          "The machine runs its randomization engine and renders a verdict. One answer. No hedging. Free users get 2 spins per day — enough to feel the core loop.",
+      },
+      {
+        step: "03",
+        title: "Honor The Pact",
+        description:
+          "Commit to the verdict. If it genuinely doesn't work, use a Sacred Veto for a re-spin. Every decision is logged in the Vault for pattern analysis over time.",
+      },
+    ],
+    highlights: [
+      {
+        title: "The Commitment Pact",
+        description:
+          "Unlike generic randomizers, Pick One is built around a psychological contract. The machine decides — you commit. It's designed to break the loop of infinite re-rolling and second-guessing.",
+      },
+      {
+        title: "Industrial Noir Aesthetic",
+        description:
+          "Deep blacks, charcoal grays, and Sacred Orange accents. Every verdict feels like a final ruling, not a casual suggestion. Built for people who take their decisions seriously.",
+      },
+      {
+        title: "Zero Subscriptions",
+        description:
+          "Pay once ($12.99) for lifetime unlimited spins. No monthly fees, no renewal anxiety, no dark patterns. Free tier gives you 2 daily spins to experience the full loop.",
+      },
+      {
+        title: "Local-First & Private",
+        description:
+          "All choices, history, and kits are stored locally via SQLite. No accounts required, no data sent to servers. Your decisions are yours alone.",
+      },
+    ],
+    targetAudience: [
+      {
+        title: "Chronically Indecisive People",
+        description:
+          "You spend 20 minutes picking a restaurant and still feel bad about the choice. Pick One cuts the loop with a final, committed verdict.",
+        icon: "rocket",
+      },
+      {
+        title: "Founders & Solopreneurs",
+        description:
+          "Decision fatigue is real. Outsource low-stakes choices to the machine so you can save mental energy for what matters.",
+        icon: "pen",
+      },
+      {
+        title: "Couples & Groups",
+        description:
+          "End the 'I don't know, what do you want?' loop. Add everyone's options and let the machine settle it once and for all.",
+        icon: "heart",
+      },
+      {
+        title: "People Who Hate Subscriptions",
+        description:
+          "One-time payment, lifetime access. No recurring charges, no feature gating after updates. The anti-SaaS productivity tool.",
+        icon: "laptop",
+      },
+    ],
+    faq: [
+      {
+        question: "What is the Commitment Pact?",
+        answer:
+          "The Commitment Pact is the core philosophy of Pick One. Once the machine selects a verdict, the app psychologically encourages you to honor it. The Sacred Veto exists for genuine conflicts — not as a re-roll button. The pact is what separates Pick One from a generic randomizer.",
+      },
+      {
+        question: "What is a Sacred Veto?",
+        answer:
+          "A Sacred Veto lets you reject a machine verdict and trigger a re-spin. Free users get 3 vetos with a 5-minute recharge timer. A local notification alerts you when your vetos are restored. Pro users enjoy unlimited spins as part of the full experience.",
+      },
+      {
+        question: "What do I get for free?",
+        answer:
+          "Free users get 2 decision spins per day, 3 Sacred Vetos (5-minute recharge), access to pre-built Kits, and the full Decision Vault. It's enough to feel the complete loop and understand the value before going Pro.",
+      },
+      {
+        question: "What does Pick One Pro include?",
+        answer:
+          "Pick One Pro is a one-time $12.99 lifetime purchase via the App Store. It unlocks unlimited daily decision spins. No subscriptions, no recurring charges, no feature gating — pay once, use forever.",
+      },
+      {
+        question: "What are Kits?",
+        answer:
+          "Kits are pre-built decision blueprints for common choices — Gastronomy (meals, restaurants), Entertainment (movies, shows, activities), and Wellness (workout or recovery options). You can also create and save fully custom kits for your own recurring decisions.",
+      },
+      {
+        question: "Is my data private?",
+        answer:
+          "Completely. Pick One uses a local-first architecture — all options, verdicts, and history are stored on your device via SQLite. No accounts, no cloud sync, no data harvesting. Delete the app and everything is gone.",
+      },
+    ],
+    pricing: {
+      plans: [
+        {
+          name: "Free",
+          price: "$0",
+          period: "forever",
+        },
+        {
+          name: "Lifetime Pro",
+          price: "$12.99",
+          period: "one-time",
+          badge: "Best Value",
+          highlight: true,
+        },
+      ],
+      note: "One-time payment. No subscriptions. Unlimited spins forever. Payment processed through Apple App Store.",
+    },
+    supportEmail: "pritamfinds@gmail.com",
+    privacyPolicyUrl:
+      "https://www.notion.so/Privacy-Policy-3155acbc998980cc9bcfc8622d799bc8",
+    termsOfServiceUrl:
+      "https://www.notion.so/Terms-of-Service-3155acbc998980aa95c6f4c3d4d822c3",
+  },
 ];
 
 // Calculate totals from projects
-export const totalRevenue = "$121";
-export const totalUsers = "300+";
+export const totalRevenue = "$182";
+export const totalUsers = "500+";
 
 export const skills = [
   "Next.js",
@@ -581,5 +739,5 @@ export const skills = [
 export const stats = [
   { label: "Monthly Revenue", value: totalRevenue },
   { label: "Total Users", value: totalUsers },
-  { label: "Products Shipped", value: "4+" },
+  { label: "Products Shipped", value: "5+" },
 ];
