@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import { siteConfig } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Pick One — Decision Maker | Stop Second-Guessing",
+  title: "Pick One: Decision Maker | Stop Second-Guessing",
   description:
     "Pick One is a fast randomization engine built around the Commitment Pact. Add your options, hit Decide, honor the verdict. Sacred Veto for re-spins. Decision Vault for history. Industrial Noir design. One-time $12.99 lifetime purchase.",
   keywords: [
@@ -64,6 +64,10 @@ export const metadata: Metadata = {
   category: "Utilities & Productivity",
 };
 
-export default function PickOneLayout({ children }: { children: React.ReactNode }) {
+export default function PickOneLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return <>{children}</>;
 }

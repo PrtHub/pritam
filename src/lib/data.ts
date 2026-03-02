@@ -561,7 +561,7 @@ export const projects: Project[] = [
   },
   {
     slug: "pickone",
-    title: "Pick One — Decision Maker",
+    title: "Pick One: Decision Maker",
     description:
       "Stop second-guessing. Pick One is a fast randomization engine built around the Commitment Pact — once the machine decides, you commit. Industrial Noir aesthetic, zero subscriptions.",
     fullDescription:
@@ -716,6 +716,13 @@ export const projects: Project[] = [
       "https://www.notion.so/Privacy-Policy-3155acbc998980cc9bcfc8622d799bc8",
     termsOfServiceUrl:
       "https://www.notion.so/Terms-of-Service-3155acbc998980aa95c6f4c3d4d822c3",
+    screenshots: [
+      { url: "/apps/pick-one/01.png", alt: "" },
+      { url: "/apps/pick-one/02.png", alt: "Today Tab - Action Cards" },
+      { url: "/apps/pick-one/03.png", alt: "Circle View - Friends Overview" },
+      { url: "/apps/pick-one/04.png", alt: "Friend Details - Settings" },
+      { url: "/apps/pick-one/05.png", alt: "You Tab - Stats Dashboard" },
+    ],
   },
 ];
 
