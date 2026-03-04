@@ -712,6 +712,8 @@ export const projects: Project[] = [
       note: "One-time payment. No subscriptions. Unlimited spins forever. Payment processed through Apple App Store.",
     },
     supportEmail: "pritamfinds@gmail.com",
+    appStoreUrl:
+      "https://apps.apple.com/us/app/pick-one-decision-maker/id6759740295",
     privacyPolicyUrl:
       "https://www.notion.so/Privacy-Policy-3155acbc998980cc9bcfc8622d799bc8",
     termsOfServiceUrl:
